@@ -31,4 +31,4 @@ class ItemFilter(FilterSet):
 
         model = Item
         fields = ('name', 'sex', 'memo',)
-        
+    
