@@ -8,6 +8,7 @@ from .models import Item
 from .filters import ItemFilter
 from .forms import ItemForm
 
+
 class ItemFilterView(LoginRequiredMixin, FilterView):
     model = Item
     filterset_class = ItemFilter
@@ -33,36 +34,28 @@ class ItemFilterView(LoginRequiredMixin, FilterView):
         return super().get(request, **kwargs)
 
 
-class ItemFilterView(LoginRequiredMixin, FilterView):
-  model = Item
-  filterset_class = ItemFilter
 
-  queryset = Item.objects.all().order_by('-created_at')
-
-  strict = False
-
-  paginate_by = 10 
-
-  def get(self,request,**kwargs):
-      if request.GET
-          request.session
-      else:
-          request.GET = request.GET.copy()
-          if 'query'in request.session.keys:
-              for key in request.session['query'].keys():
-                  request.GET[key] = request.session['query']
-
-      
-      return super().get(request,**kwargs)
-
-class ItemdatailView(LoginRequiredMixin,DatailView):
-  model = Item
-  form_class = ItemForm
-  success_url = reverse_lazy('index')
+# 詳細画面
+class ItemDetailView(LoginRequiredMixin, DetailView):
+    model = Item
 
 
-class ItemDeleteView(LoginRequiredMixin,DeleteView):
-  model = Item
-  success_url = reverse_lazu('index')
+
+# 登録画面
+class ItemCreateView(LoginRequiredMixin, CreateView):
+    model = Item
+    form_class = ItemForm
+    success_url = reverse_lazy('index')
 
 
+# 更新画面
+class ItemUpdateView(LoginRequiredMixin, UpdateView):
+    model = Item
+    form_class = ItemForm
+    success_url = reverse_lazy('index')
+
+
+# 削除画面
+class ItemDeleteView(LoginRequiredMixin, DeleteView):
+    model = Item
+    success_url = reverse_lazy('index')
