@@ -14,7 +14,7 @@ class ItemFilter(FilterSet):
     name = filters.CharFilter(label='氏名', lookup_expr='contains')
     memo = filters.CharFilter(label='備考', lookup_expr='contains')
 
-  order_by = MyOrderingFilter(
+    order_by = MyOrderingFilter(
         # tuple-mapping retains order
         fields=(
             ('name', 'name'),
@@ -31,4 +31,4 @@ class ItemFilter(FilterSet):
 
         model = Item
         fields = ('name', 'sex', 'memo',)
-        
+    
