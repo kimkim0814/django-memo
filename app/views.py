@@ -9,6 +9,8 @@ from .filters import ItemFilter
 from .forms import ItemForm
 
 
+# Create your views here.
+# 検索一覧画面
 class ItemFilterView(LoginRequiredMixin, FilterView):
     model = Item
     filterset_class = ItemFilter
@@ -34,11 +36,9 @@ class ItemFilterView(LoginRequiredMixin, FilterView):
         return super().get(request, **kwargs)
 
 
-
 # 詳細画面
 class ItemDetailView(LoginRequiredMixin, DetailView):
     model = Item
-
 
 
 # 登録画面
