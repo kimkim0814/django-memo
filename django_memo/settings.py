@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'we5pwu&@-em1l1-!hal1d24%7wj8@ek_j)q@ey+!@)!!m0@ebh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -126,3 +126,7 @@ LOGOUT_REDIRECT_URL='/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+try:
+    from .local_settings import *
+except ImportError:
+    pass
