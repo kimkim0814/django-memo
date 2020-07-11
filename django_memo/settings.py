@@ -137,7 +137,7 @@ if not DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
 
 ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
-ALLOWED_HOSTS = ['*'] #こちらでもokです
+
 
 db_from_env = dj_database_url.config(conn_max_age=600, ssl_require=True)
 DATABASES['default'].update(db_from_env)
