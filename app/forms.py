@@ -1,6 +1,7 @@
 from django import forms
 from .models import Item
 
+
 class ItemForm(forms.ModelForm):
 
     class Meta:
@@ -11,4 +12,4 @@ class ItemForm(forms.ModelForm):
                     'age': forms.NumberInput(attrs={'min':1}),
                     'sex': forms.RadioSelect(),
                     'memo': forms.Textarea(attrs={'rows':4}),
-        }
+                  }
